@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить задачу</title>
+</head>
+<body>
+<form action="{{ url_for('tasks.add_task') }}" method="POST">
+    <input name="title" type="text" placeholder="Написать название">
+    <input name="description" type="text" placeholder="Написать описание">
+    <button>Создать задачу</button>
+</form>
+</body>
+</html>

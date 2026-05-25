@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if task_one %}
+    <h2>{{task_one.title}}</h2>
+    <p>Описание: <i> {{ task_one.description }} </i></p>
+    <form action="{{url_for('tasks.update_tasks', id=task_one.id)}}" method="POST">
+    <label>Заголовок:</label><input type='text' name="title"><br>
+    <label>Описание:</label><input type='text' name="description"><br><br>
+    <button>Обновить задачу</button>
+  </form>
+    <form action="{{url_for('tasks.get_all_tasks')}}">
+        <button>Вернуться назад</button>
+    </form>
+    {% else%}
+    <h3>404 NOt Found</h3>
+    {% endif %}
+
+</body>
+</html>

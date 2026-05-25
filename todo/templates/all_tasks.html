@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все задачи</title>
+</head>
+<body>
+{% if tasks_db %}
+    {% for task in tasks_db %}
+    <h3> <a href="{{url_for('tasks.task_detail', id=task.id)}}">{{ task.title }}</a> </h3>
+    <p> {{ task.description }}</p>
+    <hr><!--Линию поставит  -->
+{% endfor %}
+{% else %}
+    <h3>Задачи отсутсвуют!</h3>
+{% endif %}
+
+</body>
+</html>
