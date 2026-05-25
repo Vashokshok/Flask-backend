@@ -40,7 +40,21 @@ def change_username():
     return render_template('change_username.html')
 
 
+@profile_bp.route('/change_email', methods=['GET', 'POST'])
+@login_required
+def change_email():
+    if request.method == 'POST':
+        email = request.form.get('new-email')
+        try:
+            if email:
+                current_user.email = email
+            db.session.commit()
+            return redirect(url_for('profile.profile'))
+        except Exception:
+            print('Такой существует')
+            return render_template('profile.change_email')
 
+    return render_template('change_email.html')
 
 # Для смены почты, пароль - сначало старый потом новый , если не правильно то снова чтобы ввел
 

@@ -5,10 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<form action="{{ url_for('profile.change_username') }}" method="POST">
-    <label>Новый юзернейм: </label> <input name="new-username"> <br>
+<form action="{{ url_for('profile.change_email') }}" method="POST">
+    <label>Новая почта: </label> <input name="new-email"> <br>
     <button>Изменить</button>
 </form>
-
 </body>
 </html>
