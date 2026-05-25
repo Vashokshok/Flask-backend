@@ -1,0 +1,192 @@
+/* login.css */
+
+/* Сброс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основной фон страницы */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at top left, #1d3557 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #0b132b 0%, transparent 40%),
+        linear-gradient(135deg, #071120 0%, #0d1b2a 50%, #081018 100%);
+
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    padding: 20px;
+}
+
+/* Контейнер формы */
+form {
+    width: 100%;
+    max-width: 420px;
+
+    background: rgba(12, 24, 45, 0.88);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+
+    padding: 40px 35px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(59, 130, 246, 0.12);
+
+    animation: fadeIn 0.5s ease;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Отступ между блоками */
+form > div {
+    margin-bottom: 22px;
+}
+
+/* Стили label */
+label {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    color: #c7d2fe;
+}
+
+/* Инпуты */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 15px 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+
+    border-radius: 14px;
+
+    color: #ffffff;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Placeholder */
+input::placeholder {
+    color: #94a3b8;
+}
+
+/* Focus эффект */
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: #3b82f6;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.18),
+        0 0 18px rgba(59, 130, 246, 0.15);
+}
+
+/* Remember me */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #3b82f6;
+    cursor: pointer;
+
+    margin-left: 6px;
+}
+
+/* Кнопка */
+input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Hover кнопки */
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.35),
+        0 0 20px rgba(59, 130, 246, 0.25);
+
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+/* Active */
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Ошибки */
+.error {
+    margin-top: 8px;
+
+    color: #fca5a5;
+    font-size: 13px;
+
+    padding-left: 4px;
+}
+
+/* Адаптивность */
+@media (max-width: 500px) {
+    form {
+        padding: 30px 22px;
+        border-radius: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+        padding: 13px 15px;
+    }
+
+    input[type="submit"] {
+        padding: 14px;
+    }
+}

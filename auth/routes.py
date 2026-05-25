@@ -5,7 +5,10 @@ from auth.forms.login import LoginForm
 from database.models.auth import User
 from database.enjine import db
 
-auth_bp = Blueprint('auth', __name__, template_folder='templates')
+auth_bp = Blueprint('auth',
+                    __name__,
+                    template_folder='templates',
+                    static_folder='static')
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():

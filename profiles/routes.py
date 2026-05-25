@@ -51,7 +51,7 @@ def change_email():
             db.session.commit()
             return redirect(url_for('profile.profile'))
         except Exception:
-            print('Такой существует')
+            print('Такой не существует')
             return render_template('profile.change_email')
 
     return render_template('change_email.html')

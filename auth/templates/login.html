@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Вход в аккаунт</title>
+    <link rel="stylesheet" href="{{ url_for('auth.static', filename='login.css') }}">
 </head>
 <body>
 <form action='{{url_for("auth.login") }}' method="POST">
