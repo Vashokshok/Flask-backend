@@ -13,6 +13,7 @@
 {% endfor %}
 {% else %}
     <h3>Задачи отсутсвуют!</h3>
+    <a href="{{ url_for('tasks.add_task') }}">Создать задачу</a>
 {% endif %}
 
 </body>

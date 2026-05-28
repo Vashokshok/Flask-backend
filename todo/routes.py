@@ -13,7 +13,7 @@ task_bp = Blueprint('tasks', __name__, template_folder='templates')
 #не смог зайти на страницу с задачами.
 # можно указывать там где ты не хочешь чтобы не авторизованные не смогли зайти на страницу
 def get_all_tasks():
-    all_tasks = Task.query.all() # Берем все данные с базы данных
+    all_tasks = Task.query.filter_by(user_id=current_user.id).all()
     return render_template('all_tasks.html', tasks_db=all_tasks)
 
 
@@ -22,7 +22,7 @@ def get_all_tasks():
 @task_bp.route('/read/<int:id>')
 @login_required
 def task_detail(id):
-    task_one = Task.query.filter_by(id=id).first()
+    task_one = Task.query.filter_by(id=id, user_id=current_user.id).first()
     return render_template('index.html', task_one=task_one)
 
 @task_bp.route('/add', methods=['GET', 'POST'])
@@ -32,7 +32,7 @@ def add_task():
         title = request.form.get('title')
         description = request.form.get('description')
         # tasks_db.append({'id': len(tasks_db) + 1, 'title': title, 'description': description})
-        task = Task(title=title, description=description)
+        task = Task(title=title, description=description, user_id=current_user.id)
         db.session.add(task)
         db.session.commit()
         return redirect(url_for('tasks.get_all_tasks'))
@@ -41,7 +41,7 @@ def add_task():
 @task_bp.route('/update/<int:id>', methods=['GET', 'POST'])
 @login_required
 def update_tasks(id):
-    tasks = Task.query.filter_by(id=id).first()
+    tasks = Task.query.filter_by(id=id, user_id=current_user.id).first()
     if request.method == 'POST':
         title = request.form.get('title')
         description = request.form.get('description')
@@ -56,7 +56,7 @@ def update_tasks(id):
 @task_bp.route('/delate/<int:id>', methods=['POST'])
 @login_required
 def delate_task(id):
-    tasks = Task.query.filter_by(id=id).first()
+    tasks = Task.query.filter_by(id=id, user_id=current_user.id).first()
     db.session.delete(tasks)
     db.session.commit()
     return redirect(url_for('tasks.get_all_tasks'))
