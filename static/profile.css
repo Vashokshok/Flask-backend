@@ -1,0 +1,166 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: "Inter", "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #1e3a5f 0%, transparent 30%),
+        radial-gradient(circle at bottom right, #16213e 0%, transparent 25%),
+        linear-gradient(135deg, #081120, #0b172a);
+
+    color: #ffffff;
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+body > * {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    background: rgba(15, 23, 42, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px 24px 0 0;
+
+    padding: 28px 32px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    text-align: center;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+
+    color: #ffffff;
+}
+
+/* =========================
+   PROFILE INFO
+========================= */
+
+p {
+    background: rgba(15, 23, 42, 0.92);
+
+    padding: 20px 32px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 16px;
+
+    color: #cbd5e1;
+
+    line-height: 1.6;
+
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease;
+}
+
+/* Hover effect */
+
+p:hover {
+    background: rgba(20, 32, 58, 0.95);
+
+    transform: translateX(3px);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    display: block;
+
+    background: rgba(15, 23, 42, 0.92);
+
+    padding: 16px 32px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #60a5fa;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease;
+}
+
+/* Last button */
+
+a:last-of-type {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 0 0 24px 24px;
+
+    padding-bottom: 24px;
+}
+
+/* Hover */
+
+a:hover {
+    background: rgba(30, 41, 59, 0.95);
+
+    color: #93c5fd;
+
+    transform: translateX(4px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 26px;
+
+        padding: 24px 20px;
+    }
+
+    p,
+    a {
+        padding: 18px 20px;
+
+        font-size: 14px;
+    }
+}

@@ -5,7 +5,10 @@ from database.enjine import db
 
 
 
-profile_bp = Blueprint('profile', __name__, template_folder='templates')
+profile_bp = Blueprint('profile',
+                       __name__, template_folder='templates',
+                       static_folder='static'
+                       )
 
 
 @profile_bp.route('/')
